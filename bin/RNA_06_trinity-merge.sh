@@ -1,12 +1,16 @@
 #!/bin/bash
 
-#### still working on this
+#### still working on this ####
 
+# path to settings.config file
 SETTINGS_FILE=${1}
+# name of isolate with samples to process
 ISOLATE=${2}
 
+# load settings
 source $SETTINGS_FILE
 
+# activate working environment
 conda activate $MYENV
 
 cd $DIR_TRINITY
