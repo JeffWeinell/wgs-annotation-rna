@@ -15,7 +15,7 @@ mkdir -p $DIR_TRINITY
 conda activate $MYENV
 
 # 1. fastqc
-fastqc -o $DIR_FASTQC $R1 $R2 -t $NUM_THREADS
+fastqc -o $DIR_FASTQC $R1_RAW $R2_RAW -t $NUM_THREADS
 
 # 2. kmer read corrections
 run_rcorrector.pl -1 $R1_RAW -2 $R2_RAW -od $DIR_RCORRECT -t $NUM_THREADS
