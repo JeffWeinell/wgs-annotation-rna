@@ -14,23 +14,24 @@ conda create --name transcriptomes -c bioconda trinity bowtie2 fastqc rcorrector
 git clone https://github.com/JeffWeinell/wgs-annotation-rna
 ```
 
-#### prepare samples.config and settings.congig files
+#### prepare samples.config and settings.config files
 
 ```
-# create samples.config file
+# edit a copy of samples.config
+cp path/to/samples.config path/to/my-samples.config
+```
 
-
-# create settings.config file
- 
-
+```
+# edit a copy of settings.config
+cp path/to/settings.config path/to/my-settings.config
 ```
 
 #### run fastqc and rcorrector
 
 ```
-# set variables specifying paths to your samples.config and settings.config files
-SAMPLES_FILE=/path/to/XXXXX-samples.config
-SETTINGS_FILE=/path/to/XXXXX-settings.config
+# specify paths to config files
+SAMPLES_FILE=path/to/my-samples.config
+SETTINGS_FILE=path/to/my-settings.config
 
 # for each sample, run 01_fastqc.sh and 02_rcorrector.sh on raw paired-end reads
 SAMPLE_NAMES=$(awk '{print $1}' $SAMPLES_FILE | uniq )
