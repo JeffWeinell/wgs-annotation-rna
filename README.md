@@ -1,6 +1,4 @@
-# wgs-annotation-rna
-About: Pipeline for RNAseq assembly for whole genome annotation
-
+# Pipeline for RNAseq assembly and functional annotation of whole genomes
 
 #### create a conda environment with all necessary programs
 ``` conda create --name transcriptomes -c bioconda trinity bowtie2 fastqc rcorrector ntcard ```
