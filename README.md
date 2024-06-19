@@ -28,7 +28,7 @@ SAMPLE_NAMES=$(awk '{print $1}' $SAMPLES_FILE | uniq )
 NUMSAMPLES=$(echo "$SAMPLE_NAMES" | wc -l)
 for i in $(seq 1 $NUMSAMPLES);
 do
-	NAMEi=$(echo "$SAMPLE_NAMES" | awk -v i=$i 'NR==i{print}')
+	NAMEi=$(echo "$SAMPLE_NAMES" | sed "${i}q;d")
 	source $SETTINGS_FILE $NAMEi
 	echo $i $NAMEi
 	sbatch --mem=$MAX_MEM_FASTQC --tasks-per-node=$NUM_THREADS_FASTQC ./bin/01_fastqc.sh $SETTINGS_FILE $NAMEi
