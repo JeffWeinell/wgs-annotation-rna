@@ -1,9 +1,20 @@
 # Pipeline for RNAseq assembly and functional annotation of whole genomes
 
-#### create a conda environment with all necessary programs
-``` conda create --name transcriptomes -c bioconda trinity bowtie2 fastqc rcorrector ntcard ```
 
-#### create samples.config and settings.congig files
+#### setup working environment
+
+```
+# create conda environment with all necessary programs
+conda create --name transcriptomes -c bioconda trinity bowtie2 fastqc rcorrector ntcard
+```
+
+#### clone this repository
+
+```
+git clone https://github.com/JeffWeinell/wgs-annotation-rna
+```
+
+#### prepare samples.config and settings.congig files
 
 ```
 # create samples.config file
