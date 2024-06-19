@@ -2,12 +2,28 @@
 About: Pipeline for RNAseq assembly for whole genome annotation
 
 
-#### 1. create a conda environment with all necessary programs
-` conda create --name transcriptomes -c bioconda trinity bowtie2 fastqc rcorrector ntcard `
+#### create a conda environment with all necessary programs
+``` conda create --name transcriptomes -c bioconda trinity bowtie2 fastqc rcorrector ntcard ```
 
-#### 2. run fastqc and rcorrector
-`SAMPLES_FILE=/path/to/XXXXX-rna-samples.txt
+#### create samples.config and settings.congig files
+
+```
+# create samples.config file
+
+
+# create settings.config file
+ 
+
+```
+
+#### run fastqc and rcorrector
+
+```
+# set variables specifying paths to your samples.config and settings.config files
+SAMPLES_FILE=/path/to/XXXXX-samples.config
 SETTINGS_FILE=/path/to/XXXXX-settings.config
+
+# for each sample, run 01_fastqc.sh and 02_rcorrector.sh on raw paired-end reads
 SAMPLE_NAMES=$(awk '{print $1}' $SAMPLES_FILE | uniq )
 NUMSAMPLES=$(echo "$SAMPLE_NAMES" | wc -l)
 for i in $(seq 1 $NUMSAMPLES);
@@ -18,17 +34,21 @@ do
 	sbatch --mem=$MAX_MEM_FASTQC --tasks-per-node=$NUM_THREADS_FASTQC ./bin/01_fastqc.sh $SETTINGS_FILE $NAMEi
 	sbatch --mem=$MAX_MEM_RCORRECTOR --tasks-per-node=$NUM_THREADS_RCORRECTOR ./bin/02_rcorrector.sh $SETTINGS_FILE $NAMEi
 done
-`
-#### 3. filter
+```
+
+#### filter
 
 
-#### 4. trim with trimmomatic
+
+#### trim with trimmomatic
 
 
-#### 5. assemble with trinity
+
+#### assemble with trinity
 
 
-#### 6. merge assemblies by isolate
+
+#### merge assemblies by isolate
 
 
 
