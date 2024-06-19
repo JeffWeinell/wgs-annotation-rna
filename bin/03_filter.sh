@@ -12,7 +12,5 @@ source $SETTINGS_FILE $NAME
 conda activate $MYENV
 
 # Filter/correct reads
-cd $DIR_FILTER
-
 python $PATH_FILTER_PY -1 $R1_COR -2 $R2_COR
 mv ${DIR_RCORRECT}/unfixrm_* $DIR_FILTER
