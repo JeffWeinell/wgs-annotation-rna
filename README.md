@@ -26,6 +26,8 @@ cp path/to/samples.config path/to/my-samples.config
 cp path/to/settings.config path/to/my-settings.config
 ```
 
+
+### preprocess raw reads
 #### run fastqc and rcorrector
 
 ```
@@ -84,8 +86,9 @@ do
 done
 ```
 
-#### assemble with trinity
+### assemble transcriptomes
 
+#### assemble with trinity
 ```
 # specify paths to config files
 SAMPLES_FILE=path/to/my-samples.config
@@ -103,7 +106,7 @@ do
 done
 ```
 
-#### merge tissue assemblies by individual (=isolate)
+#### merge tissue-transcriptomes by individual
 
 ```
 # specify paths to config files
