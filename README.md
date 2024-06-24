@@ -75,7 +75,7 @@ SAMPLES_FILE=path/to/my-samples.config
 SETTINGS_FILE=path/to/my-settings.config
 
 # for each sample, run 04_trim.sh on rcorrected, filtered reads
-SAMPLE_NAMES=$(awk '{print $1}' $SAMPLES_FILE | uniq)
+SAMPLE_NAMES=$(awk '{print $1}' $SAMPLES_FILE | sort | uniq)
 NUMSAMPLES=$(echo "$SAMPLE_NAMES" | wc -l)
 for i in $(seq 1 $NUMSAMPLES);
 do
