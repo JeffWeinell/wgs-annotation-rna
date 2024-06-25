@@ -11,5 +11,8 @@ source $SETTINGS_FILE $NAME
 # activate working environment
 conda activate $MYENV
 
+# create directory for Trinity output
+mkdir -p $DIR_TRINITY
+
 # Assemble with trinity
 Trinity --full_cleanup --seqType fq  --left $R1PE_TRIMMED --right $R2PE_TRIMMED --single ${R1S_TRIMMED},${R2S_TRIMMED} --normalize_reads --CPU $NUM_THREADS_TRINITY --max_memory $MAX_MEM_TRINITY --output $DIR_TRINITY
