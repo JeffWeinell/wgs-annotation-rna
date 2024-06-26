@@ -86,6 +86,10 @@ do
 done
 ```
 
+Trimmed reads are separately used for:
+- transcriptome assembly with Trinity
+- gene prediction pipeline with Braker3
+
 ### assemble transcriptomes
 
 #### assemble with trinity
