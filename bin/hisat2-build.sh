@@ -1,16 +1,14 @@
 #!/bin/bash
 
-##### activate conda environment
-source ~/.bash_profile
-export PATH=/home/jweinell/mendel-nas1/miniconda3/bin:$PATH
-conda activate hisat2
+SETTINGS_FILE=${1}
+NAME=${2}
 
-CONFIG_PATH=${1}
+source $SETTINGS_FILE $NAME
 
-source $CONFIG_PATH
+conda activate $MYENV   ### need to install hisat2 to $MYENV
 
-mkdir -p $BRAKER_WORKDIR
-cd $BRAKER_WORKDIR
+mkdir -p $HISAT2_DIR    ### need to add HISAT2_DIR variable to $SETTINGS_FILE
+cd $HISAT2_DIR
 
 # build index for reference
 hisat2-build $GENOME $NAME
